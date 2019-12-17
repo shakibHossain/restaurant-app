@@ -23,7 +23,11 @@ const ResultsShowScreen = ({navigation}) => {
 	}
 
 	onPress = () => {
-		openMap({ latitude: result.coordinates.latitude, longitude: result.coordinates.longitude });
+		openMap({ 
+			latitude: result.coordinates.latitude, 
+			longitude: result.coordinates.longitude,
+			end: result.coordinates.latitude+","+result.coordinates.longitude,
+			navigate_mode: "navigate"});
 	}
 	 
 	return (
