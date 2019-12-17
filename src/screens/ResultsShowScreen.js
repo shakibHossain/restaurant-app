@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {View, Text, StyleSheet, FlatList, Image, Button} from 'react-native';
+import {View, Text, StyleSheet, FlatList, Image, TouchableOpacity, Button} from 'react-native';
 import yelp from '../api/yelp';
 import openMap from 'react-native-open-maps';
 
@@ -21,9 +21,9 @@ const ResultsShowScreen = ({navigation}) => {
 		return null; 
 	}
 
-	const goToYosemite = () => {
-    	openMap({ latitude: 37.865101, longitude: -119.538330 });
-  	}
+	onPress = () => {
+		openMap({ latitude: 23.8103, longitude: 90.4125 });
+	}
 	 
 	return (
 		<View style={styles.container}>
@@ -31,10 +31,12 @@ const ResultsShowScreen = ({navigation}) => {
 			<Text>{result.rating} Stars, {result.review_count} Reviews</Text>
 			<Text>Cell : {result.phone}</Text>
 			<Text>Address : {result.location.display_address}</Text>
-			<Button
-		        color={'#bdc3c7'}
-		        onPress={goToYosemite()}
-		        title="Click To Open Maps 🗺" />
+			<TouchableOpacity style={styles.button}>
+		        <Button
+			    	onPress={this.onPress}
+			        title="Get Directions" />
+		    </TouchableOpacity>
+		    
 			<FlatList
 				data={result.photos}
 				keyExtractor={(photo) => photo}
@@ -63,6 +65,11 @@ const styles = StyleSheet.create({
 	},
 	name:{
 		fontWeight:'bold'
+	},
+	button: {
+		marginTop:5,
+		marginBottom:5,
+		marginRight:5
 	}
 });
 
