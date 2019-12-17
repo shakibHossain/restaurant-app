@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {View, Text, StyleSheet, FlatList, Image, TouchableOpacity, Button} from 'react-native';
+import {View, Text, StyleSheet, FlatList, Image, TouchableOpacity, Button, Linking} from 'react-native';
 import yelp from '../api/yelp';
 import openMap from 'react-native-open-maps';
 
@@ -10,6 +10,7 @@ const ResultsShowScreen = ({navigation}) => {
 	const getResult = async (id) => {
 		const response = await yelp.get(`/${id}`);
 		setResult(response.data);
+		console.log(response.data);
 	};
 
 	//runs function only one time
@@ -22,14 +23,21 @@ const ResultsShowScreen = ({navigation}) => {
 	}
 
 	onPress = () => {
-		openMap({ latitude: 23.8103, longitude: 90.4125 });
+		openMap({ latitude: result.coordinates.latitude, longitude: result.coordinates.longitude });
 	}
 	 
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>{result.name}</Text>
-			<Text>{result.rating} Stars, {result.review_count} Reviews</Text>
-			<Text>Cell : {result.phone}</Text>
+			<Text>Alias : {result.alias}</Text>
+			<Text>Restaurant Rating : {result.rating} Stars</Text>
+			<Text>Review Count : {result.review_count} Reviews</Text>
+			<Text>Price : {result.price}</Text> 
+			<Text>Cell : {result.display_phone}</Text>
+			<Text style={{color: 'blue'}}
+			      onPress={() => Linking.openURL(result.url)}>
+			  Business Page
+			</Text>
 			<Text>Address : {result.location.display_address}</Text>
 			<TouchableOpacity style={styles.button}>
 		        <Button
