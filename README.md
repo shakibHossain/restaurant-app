@@ -8,3 +8,6 @@ Features :
 - Search term can be food and restaurant names.
 - View restuarant business page 
 - Get directions to restuarants from the app.
+
+Project link :
+https://expo.io/@shakibhossain/restuarant-search-app
