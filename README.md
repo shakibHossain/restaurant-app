@@ -6,8 +6,8 @@ A restaurant search app was built on react native framework and presently built 
 Features :
 - Easily search for any restaurant (with a yelp business page).
 - Search term can be food and restaurant names.
-- View restuarant business page 
-- Get directions to restuarants from the app.
+- View restaurant business page 
+- Get directions to restaurants from the app.
 
 Project link :
 https://expo.io/@shakibhossain/restuarant-search-app
