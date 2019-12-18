@@ -5,6 +5,8 @@ export default () => {
 	const [results, setResults] = useState([]);
 	const [errorMessage, setErrorMessage] = useState('');
 
+	// called when search term is submitted
+	// hard coded location to "regina", make it dynamic later
 	const searchApi = async (searchTerm) => {
 		try{
 			const response = await yelp.get('/search', {

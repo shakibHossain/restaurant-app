@@ -22,6 +22,10 @@ const ResultsShowScreen = ({navigation}) => {
 		return null; 
 	}
 
+	// called when "get directions" button is clicked
+	// parameters lat,lon are set accordingly from response.data
+	// parameter end is set to "lat,lon"
+	// to open google map with navigation mode, parameter navigate_mode is set to navigate   
 	onPress = () => {
 		openMap({ 
 			latitude: result.coordinates.latitude, 
@@ -48,8 +52,7 @@ const ResultsShowScreen = ({navigation}) => {
 			    	onPress={this.onPress}
 			        title="Get Directions" />
 		    </TouchableOpacity>
-		    
-			<FlatList
+		    <FlatList
 				data={result.photos}
 				keyExtractor={(photo) => photo}
 				renderItem={({item}) => {

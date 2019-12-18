@@ -3,6 +3,9 @@ import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import ResultsDetail from './ResultsDetail';
 import {withNavigation} from 'react-navigation';
 
+// search result is displayed here.
+// on clicking any of the search results, single restaurant detail is fetched
+// and displayed on a separate view. 
 const ResultsList = ({title, results, navigation}) => {
 	if(!results.length){
 		return null;

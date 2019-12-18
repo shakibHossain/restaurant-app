@@ -9,6 +9,7 @@ const SearchScreen = () => {
 	const [term, setTerm] = useState('');
 	const [searchApi, results, errorMessage] = useResults();
 
+	//restaurants are filterd by price
 	const filterResultsByPrice = (price) => {
 		//price === '$' | '$$' | '$$$'
 		return results.filter(result => {
